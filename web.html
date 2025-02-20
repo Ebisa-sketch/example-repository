@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    * {box-sizing: border-box;}
+    body {
+      font-family: "Lato", sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: white;
+      display: flex; /* Flexbox layout */
+      height: 100vh;
+      flex-direction: column;
+    }
+
+    /* Navigation bar at the top */
+    .navbar {
+      background-color: gold; /* Change background color to gold */
+      padding: 12px;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      padding: 14px;
+      font-size: 17px;
+    }
+
+    .navbar a:hover {
+      background-color: #45a049;
+    }
+
+    .navbar-right {
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar-right input[type="text"] {
+      padding: 6px;
+      font-size: 17px;
+      border: none;
+      margin-top: 8px;
+      margin-right: 10px;
+    }
+
+    .navbar-right button {
+      padding: 6px 12px;
+      font-size: 17px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-top: 8px;
+    }
+
+    .navbar-right button:hover {
+      background-color: #45a049;
+    }
+
+    /* Left-side navigation */
+    .sidebar {
+      width: 200px;
+      background-color: green; /* Green background */
+      height: 100vh; /* Full-height */
+      position: fixed;
+      top: 50px; /* Below navbar */
+      left: 0;
+      padding-top: 20px;
+    }
+
+    .sidebar a {
+      display: block;
+      color: white;
+      padding: 16px;
+      text-align: center;
+      text-decoration: none;
+      font-size: 17px;
+      transition: 0.3s;
+    }
+
+    .sidebar a:hover {
+      background-color: #45a049;
+    }
+
+    /* Right-side content area */
+    .main-content {
+      margin-left: 220px; /* Make space for the sidebar */
+      padding: 20px;
+      overflow-y: auto; /* Allow scrolling if content overflows */
+      margin-top: 60px; /* Avoid overlap with the navbar */
+    }
+
+    /* Hide all sections by default */
+    .content {
+      display: none;
+    }
+
+    /* Show content for the active link */
+    .active {
+      display: block;
+    }
+
+    /* Gallery content */
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .gallery img {
+      width: 100%;
+      max-width: 200px;
+      margin: 10px;
+    }
+
+    /* Footer at the bottom */
+    .footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+    }
+
+    .footer a {
+      color: #f1f1f1;
+      text-decoration: none;
+      margin: 0 10px;
+      font-size: 14px;
+    }
+
+    .footer a:hover {
+      color: #4CAF50;
+    }
+
+    /* Contact form styling */
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .contact-form button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .contact-form button:hover {
+      background-color: #45a049;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <div class="navbar">
+    <a href="#home">Home</a> <!-- Home button -->
+    <div class="navbar-right">
+      <!-- Search bar -->
+      <input type="text" placeholder="Search..">
+      <!-- Sign-in button -->
+      <button onclick="alert('Sign in functionality not implemented')">Sign In</button>
+    </div>
+  </div>
+
+  <!-- Left Sidebar Navigation -->
+  <div class="sidebar">
+    <a href="#Gallery" onclick="showContent('Gallery')">Gallery</a>
+    <a href="#story" onclick="showContent('story')">Story</a>
+    <a href="#ContactUs" onclick="showContent('ContactUs')">Contact Us</a>
+  </div>
+
+  <!-- Right Content Area -->
+  <div class="main-content">
+    <!-- Content for Gallery -->
+    <div id="Gallery" class="content">
+      <h3>Gallery</h3>
+      <p>Explore beautiful images from around Haramaya University:</p>
+      <div class="gallery">
+        <img src="https://via.placeholder.com/200" alt="Image 1">
+        <img src="https://via.placeholder.com/200" alt="Image 2">
+        <img src="https://via.placeholder.com/200" alt="Image 3">
+        <img src="https://via.placeholder.com/200" alt="Image 4">
+      </div>
+    </div>
+
+    <!-- Content for Story -->
+    <div id="story" class="content">
+      <h3>Story</h3>
+      <p >Paris is the capital of France. It is known for its art, fashion,
+         and culture. The city is home to iconic landmarks such as the Eiffel Tower and the Louvre Museum.
+         Paris, the City of Lights, captivates with its romantic charm and rich history.
+          Iconic landmarks like the Eiffel Tower and the Louvre Museum draw millions,
+           while charming cobblestone streets, quaint cafes, and elegant boutiques offer a captivating blend of old-worlde
+        </p>
+    </div>
+
+    <!-- Content for Contact Us -->
+    <div id="ContactUs" class="content">
+      <h3>Contact Us</h3>
+      <div class="contact-form">
+        <form id="contactForm">
+          <input type="text" id="name" placeholder="Your Name" required>
+          <input type="email" id="email" placeholder="Your Email" required>
+          <textarea id="message" placeholder="Your Message" rows="4" required></textarea>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer at the bottom -->
+  <div class="footer">
+    <p>© 2024 Your Company. All Rights Reserved.</p>
+    <p>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of condition</a>
+      <a href="#">Contact</a>
+    </p>
+  </div>
+
+  <script>
+    // Function to display the content corresponding to the clicked link
+    function showContent(contentId) {
+      // Hide all sections
+      var contents = document.querySelectorAll('.content');
+      contents.forEach(function(content) {
+        content.classList.remove('active');
+      });
+      
+      // Show the selected section
+      var activeContent = document.getElementById(contentId);
+      activeContent.classList.add('active');
+    }
+
+    // Show the first content (Gallery) by default
+    showContent('Gallery');
+  </script>
+
+</body>
+</html>
